@@ -6,6 +6,8 @@ A simple http service that generates \*.PDF reports from [Grafana](http://grafan
 
 ## Requirements
 
+⚠️**Due to problems with local routings, paths have to be changed according with each machine. Don't forget you can fork the repo :)**
+
 Runtime requirements
 
 - `pdflatex` installed and available in PATH.
