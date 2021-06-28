@@ -6,7 +6,7 @@ A simple http service that generates \*.PDF reports from [Grafana](http://grafan
 
 ## Requirements
 
-⚠️**Due to problems with local routings, paths have to be changed according with each machine. Don't forget you can fork the repo :)**
+⚠️**Due to problems with local routings, paths have to be changed according with each machine. Don't forget you can fork the repo 🌝**
 
 Runtime requirements
 
@@ -27,7 +27,7 @@ Get the source files and dependencies:
 
 Build and install `grafana-reporter` binary to `$GOPATH/bin`:
 
-    go install -v github.com/fntkg/reporter/cmd/grafana-reporter
+    go install -v github.com/fntkg/reporter/cmd/grafana-reporter@latest
 
 Running without any flags assumes Grafana is reachable at `localhost:3000`:
 
