@@ -20,17 +20,48 @@ package report
 
 const defaultGridTemplate = `
 %use square brackets as golang text templating delimiters
-\documentclass{article}
-\usepackage{graphicx}
-\usepackage[margin=0.5in]{geometry}
-
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx, xcolor}
+\usepackage[margin=1in]{geometry}
 \graphicspath{ {images/} }
+\usepackage{lipsum} % for filler text
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\renewcommand{\headrulewidth}{0pt} % no line in header area
+\fancyfoot{} % clear all footer fields
+\lfoot{\colorbox{violet}{%
+  \makebox[\dimexpr\linewidth-2\fboxsep][l]{\color{white}%
+    Hiberus Sistemas Informáticos Zaragoza - Tfno. 902877392
+    \hfill
+    \thepage
+  }%
+}}
+
+\title{Informe Grafana}
+\author{Hiberus sistemas}
+
 \begin{document}
-\title{[[.Title]] [[if .VariableValues]] \\ \large [[.VariableValues]] [[end]] [[if .Description]] \\ \small [[.Description]] [[end]]}
-\date{[[.FromFormatted]]\\to\\[[.ToFormatted]]}
-\maketitle
+
+
+\begin{titlepage}
+    \centering
+    \includegraphics[width=8cm]{/root/.go/bin/templates/logo.png} % also works with logo.pdf
+    \vfill
+    {\bfseries\Large
+        Grafana Report\\
+        [[.FromFormatted]]\\to\\[[.ToFormatted]]\\
+        \vskip2cm
+        Hiberus sistemas\\
+    }    
+    \vfill
+    \vfill
+    \vfill
+\end{titlepage}
+
 \begin{center}
-[[range .Panels]][[if .IsPartialWidth]]\begin{minipage}{[[.Width]]\textwidth}
+[[range .Panels]][[if .IsSingleStat]]\begin{minipage}{0.3\textwidth}
 \includegraphics[width=\textwidth]{image[[.Id]]}
 \end{minipage}
 [[else]]\par
@@ -39,7 +70,7 @@ const defaultGridTemplate = `
 \par
 \vspace{0.5cm}
 [[end]][[end]]
-
 \end{center}
+
 \end{document}
 `
