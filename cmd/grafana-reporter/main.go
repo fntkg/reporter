@@ -30,7 +30,7 @@ import (
 var proto = flag.String("proto", "http://", "Grafana Protocol. Change to 'https://' if Grafana is using https. Reporter will still serve http.")
 var ip = flag.String("ip", "localhost:3000", "Grafana IP and port.")
 var port = flag.String("port", ":8686", "Port to serve on.")
-var templateDir = flag.String("templates", "root/go/bin/templates/", "Directory for custom TeX templates.")
+var templateDir = flag.String("templates", "/root/go/bin/templates", "Directory for custom TeX templates.")
 var sslCheck = flag.Bool("ssl-check", true, "Check the SSL issuer and validity. Set this to false if your Grafana serves https using an unverified, self-signed certificate.")
 var gridLayout = flag.Bool("grid-layout", false, "Enable grid layout (-grid-layout=1). Panel width and height will be calculated based off Grafana gridPos width and height.")
 
